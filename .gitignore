@@ -1,0 +1,18 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data (Biar file CSV yang berat nggak bikin repository penuh dulu)
+*.csv
+namadataset_raw/
+namadataset_preprocessing/
