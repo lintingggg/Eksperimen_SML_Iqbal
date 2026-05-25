@@ -4,7 +4,7 @@ def run_preprocessing():
     print("=== Memulai Otomatisasi Pre-processing Data ===")
 
     raw_data_path = "../dataset_raw/movie_feelings_dataset.csv"
-    clean_data_path = "dataset_preprocessing/movie_feelings_dataset_preprocessing(1).csv"
+    clean_data_path = "dataset_preprocessing/movie_feelings_dataset_preprocessing.csv"
 
     df = pd.read_csv(raw_data_path)
 
@@ -30,6 +30,3 @@ def run_preprocessing():
 
 if __name__ == "__main__":
     run_preprocessing()
-
-# Bismillah ngetrigger github action
-# mencoba untuk ke 2 kalinya

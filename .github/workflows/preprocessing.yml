@@ -39,7 +39,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add preprocessing/clean_movie_dataset.csv
+          git add preprocessing/dataset_preprocessing/movie_feelings_dataset_preprocessing.csv
           # Kalau nggak ada perubahan data, dia nggak bakal error berkat "|| echo..."
           git commit -m "Auto-update: Pembaruan dataset bersih [skip ci]" || echo "Tidak ada perubahan data yang perlu di-commit"
           git push
