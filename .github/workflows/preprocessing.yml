@@ -1,0 +1,44 @@
+name: Pipeline Preprocessing Otomatis
+
+on:
+    push:
+        paths:
+            - '**/movie_feelings_dataset.csv'
+            - '**/automated_Iqbal.py'
+        branches:
+            - main
+
+jobs:
+  run-preprocessing:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout Kode dari Repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Install Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12.7'
+
+      # Install semua dependensi yang dibutuhkan
+      - name: Install Dependencies
+        run: |
+          pip install pandas
+
+      # Menjalankan preprocesing otomatis
+      - name: Execute Preprocessing Script
+        run: |
+          python preprocessing/automate_Iqbal.py
+
+      # Menyimpan (commit & push) data bersih yang baru dibuat ke repo
+      - name: Commit and Push Clean Data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add preprocessing/clean_movie_dataset.csv
+          # Kalau nggak ada perubahan data, dia nggak bakal error berkat "|| echo..."
+          git commit -m "Auto-update: Pembaruan dataset bersih [skip ci]" || echo "Tidak ada perubahan data yang perlu di-commit"
+          git push
