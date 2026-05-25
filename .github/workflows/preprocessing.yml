@@ -31,7 +31,8 @@ jobs:
       # Menjalankan preprocesing otomatis
       - name: Execute Preprocessing Script
         run: |
-          python preprocessing/automated_Iqbal.py
+          cd preprocessing
+          python automated_Iqbal.py
 
       # Menyimpan (commit & push) data bersih yang baru dibuat ke repo
       - name: Commit and Push Clean Data
